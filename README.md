@@ -8,12 +8,14 @@
 
 写作与翻译参考[中英文术语约定](TERMINOLOGY.md)。
 
+参与项目请从[贡献指南](CONTRIBUTING.zh.md)（[English](CONTRIBUTING.md)）开始，按任务找到写作、检查和 PR 协作要求。
+
 ## 开发经验
 
 - 文档：[让文档示例参与类型检查](lessons/docs-example-typecheck.md)
-- 协作：[区分阶段性提交与主线合入](lessons/commits-and-pr-integration.md)
+- 协作：[Git 提交与 PR 协作](lessons/commits-and-pr-integration.zh.md)（[English](lessons/commits-and-pr-integration.md)）
 
-新经验使用[经验模板](templates/lesson.md)，保存到 `lessons/`，替换所有 `{{…}}` 占位符。正文按“问题与原因 → 经验结论 → 具体方法与边界 → 参考案例与验证状态”展开；案例放在底部，支持前面的归纳。固定四个二级章节，需要细分时使用三级标题。验证状态用正文说明实际做了什么，不要求每条经验都复现。
+新经验使用[经验模板](templates/lesson.md)，保存到 `lessons/`，替换所有 `{{…}}` 占位符。迁移期间，检查接受完整的旧版四段结构，以及“问题 → 经验 → 方法 → 案例”和对应英文结构，不能混用；案例放在底部，支持前面的归纳。固定四个二级章节，需要细分时使用三级标题。验证状态用正文说明实际做了什么，不要求每条经验都复现。
 
 ## 文档检查
 

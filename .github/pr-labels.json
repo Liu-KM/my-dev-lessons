@@ -1,0 +1,12 @@
+{
+  "kind/feature": "Adds or intentionally changes behavior",
+  "kind/bug-fix": "Corrects incorrect behavior",
+  "kind/doc": "Documentation is the dominant intent",
+  "kind/testing": "Tests or test infrastructure without product behavior changes",
+  "kind/cleanup": "Maintenance without behavior changes",
+  "kind/dependency": "Dependency update without another dominant intent",
+  "area/lessons": "Reusable engineering lessons and cases",
+  "area/docs": "Project documentation, templates, and terminology",
+  "area/ci": "Automated checks and CI workflows",
+  "area/workflow": "Issue, PR, and parallel development collaboration"
+}
