@@ -24,6 +24,9 @@ jobs:
           python scripts/check_lessons.py
           python -m unittest discover -s scripts -p 'test_*.py'
 
+      - name: Check bilingual lesson consistency
+        run: python scripts/check_lesson_pairs.py
+
       - name: Check Markdown formatting
         uses: DavidAnson/markdownlint-cli2-action@v24
         with:
