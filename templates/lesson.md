@@ -2,6 +2,8 @@
 
 English | [中文](lesson.zh.md)
 
+Read the [lesson writing requirements](../docs/documentation.md#lesson-writing) before filling this in. This template supplies structure; the policy owns the full requirements.
+
 ## Problem
 
 {{Describe the recurring problem and why the existing development or verification process misses it.}}
@@ -22,4 +24,4 @@ English | [中文](lesson.zh.md)
 - **Solution**: {{Explain the relevant change and its effect.}}
 - **Evidence to inspect**: {{Link the code, tests, or decision record at that revision and explain what they establish.}}
 
-Verification status: {{State what we inspected or executed and what remains unverified.}}
+Verification status: {{Describe this case’s evidence and unverified parts according to the writing requirements.}}
