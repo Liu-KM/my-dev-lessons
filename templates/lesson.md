@@ -1,19 +1,25 @@
-# {{经验标题}}
+# {{Lesson title}}
 
-## 问题与原因
+English | [中文](lesson.zh.md)
 
-{{描述普遍问题，以及现有开发或验证流程为什么会漏掉它。}}
+## Problem
 
-## 经验结论
+{{Describe the recurring problem and why the existing development or verification process misses it.}}
 
-{{给出可以迁移的判断，避免只复述 DSH 的做法。}}
+## Lesson
 
-## 具体方法与边界
+{{State a reusable insight rather than only repeating DSH's implementation.}}
 
-{{说明如何落实、为什么有效、适用条件，以及不能保证什么。}}
+## Method
 
-## 参考案例与验证状态
+{{Explain the approach, why it helps, when it applies, and what it does not guarantee.}}
 
-{{简述 DSH 的具体案例、处理方法和已有结果；附带有意义标签的原始来源链接。}}
+## Case
 
-验证状态：{{说明我们实际检查或运行了什么，哪些结论尚未验证。}}
+{{Link a specific DSH commit, using its short hash and change topic as the link label.}}
+
+- **Problem or design goal**: {{State what the commit addresses, without narrating dates.}}
+- **Solution**: {{Explain the relevant change and its effect.}}
+- **Evidence to inspect**: {{Link the code, tests, or decision record at that revision and explain what they establish.}}
+
+Verification status: {{State what we inspected or executed and what remains unverified.}}

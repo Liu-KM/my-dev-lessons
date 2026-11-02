@@ -14,7 +14,7 @@
 
 使用分支开展修改。没有仓库写权限时，可以 fork 仓库并在 fork 中创建分支。按[提交与合入](docs/pull-requests.zh.md#提交与合入)保存和组织改动；存在依赖的工作按[并行与依赖 PR](docs/pull-requests.zh.md#并行与依赖-pr)协调。
 
-贡献 lesson 时，使用[经验模板](templates/lesson.md)，参考[写作说明](README.md#开发经验)与[术语约定](TERMINOLOGY.md)。Agent 还应读取 [AGENTS.md](AGENTS.md)。
+贡献 lesson 时，使用[经验模板](templates/lesson.zh.md)，参考[写作说明](README.md#开发经验)、[双语维护](docs/bilingual-maintenance.zh.md)与[术语约定](TERMINOLOGY.md)。Agent 还应读取 [AGENTS.md](AGENTS.md)。
 
 ## 检查结果
 

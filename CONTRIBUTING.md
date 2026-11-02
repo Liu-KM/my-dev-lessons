@@ -14,7 +14,7 @@ Discuss the scope before substantial changes. Issue references and change bounda
 
 Use a branch for the change. If you do not have repository write access, fork the repository and work on a branch there. Follow [Commits and integration](docs/pull-requests.md#commits-and-integration); coordinate dependent work using [Parallel and dependent PRs](docs/pull-requests.md#parallel-and-dependent-prs).
 
-When contributing a lesson, use the [lesson template](templates/lesson.md) and consult the [writing guidance](README.md#开发经验) and [terminology](TERMINOLOGY.md). Agents should also read [AGENTS.md](AGENTS.md).
+When contributing a lesson, use the [lesson template](templates/lesson.md) and consult the [writing guidance](README.md#开发经验), [bilingual maintenance](docs/bilingual-maintenance.md), and [terminology](TERMINOLOGY.md). Agents should also read [AGENTS.md](AGENTS.md).
 
 ## Check the result
 
