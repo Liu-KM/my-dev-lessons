@@ -11,6 +11,7 @@ Before editing or reviewing, read the policy for the current task. The linked pa
 | Task | Read |
 | --- | --- |
 | Write or review a lesson | [Writing requirements](docs/documentation.md#lesson-writing) and their template links |
+| Decide whether to add, consolidate, or replace content | [Adding and consolidating content](docs/documentation.md#adding-and-consolidating-content) |
 | Synchronize English and Chinese | [Bilingual maintenance](docs/bilingual-maintenance.md) and [terminology](TERMINOLOGY.md) |
 | Run documentation checks | [Documentation checks](docs/documentation.md#documentation-checks) |
 | Prepare or review a PR | [PR policy](docs/pull-requests.md) |

@@ -16,6 +16,7 @@
 - 协作：[Git 提交与 PR 协作](lessons/commits-and-pr-integration.zh.md)（[English](lessons/commits-and-pr-integration.md)）
 - 文档：[中英双语文档一致性维护](lessons/bilingual-consistency-records.zh.md)（[English](lessons/bilingual-consistency-records.md)）
 - 文档：[规则集中维护与查找](lessons/rule-ownership-and-discovery.zh.md)（[English](lessons/rule-ownership-and-discovery.md)）
+- 文档：[新增经验与规则的取舍](lessons/lesson-and-rule-decisions.zh.md)（[English](lessons/lesson-and-rule-decisions.md)）
 
 编写经验请阅读[Lesson 写作规范](docs/documentation.zh.md#lesson-写作)，并从[贡献指南的任务导航](CONTRIBUTING.zh.md#按任务查找规范)找到双语维护、术语及 PR 要求。
 

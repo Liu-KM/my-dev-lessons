@@ -10,11 +10,24 @@ Every ready PR must reference at least one Issue in this repository. Put `Refs #
 
 ## Commits and integration
 
-Refine discussion drafts in the working tree. When saving intermediate progress or running remote checks is needed, commit and push to a feature branch within the user's authorization. Each commit should represent a logically coherent change; passing checks do not authorize an automatic commit or push.
+Complete the change, relevant local checks, and collaboration review below in the working tree, then present a local PR summary to the user. Commit, push the feature branch, and create the remote PR only after user review and authorization. The pre-commit summary is not a published PR. Each commit should represent a logically coherent change; passing checks do not authorize an automatic commit or push.
 
-Use a Draft PR while refining the proposal. Mark it ready when its scope, description, and verification evidence are complete. Continue revisions on the same branch and describe the final proposal. Before merging, recheck relevant checks, unresolved review feedback, and the final diff, then obtain explicit user confirmation to merge.
+After publication is authorized, use a Draft PR while refining the proposal. Mark it ready when its scope, description, and verification evidence are complete. Continue revisions on the same branch and describe the final proposal. Required remote checks must pass on the latest candidate commit. Before merging, recheck checks, unresolved review feedback, and the final diff, then obtain explicit user confirmation to merge. Missing, failed, or stale CI results prevent merging; green results do not authorize it automatically.
 
 Choose the merge strategy for the change: squash incremental work on one outcome or retain meaningful steps. Do not combine independent problems merely to reduce commit count. See [Git commits and PR collaboration](../lessons/commits-and-pr-integration.md) for the rationale and case.
+
+### Collaboration review before committing
+
+When an agent prepares a change, complete the following workflow by default before handing it to the user for review. Proceed through ordinary checks, collaboration, and corrections without requesting confirmation for each step.
+
+For routine reviews, the sub-agent defaults to `gpt-6.1-sol` with `medium` reasoning effort. Use focused follow-up on concrete findings; explain the reason when a different model or effort is needed.
+
+1. **Author preparation**: Complete the change, relevant local checks, and PR description draft. Establish the review base and file scope, including untracked new files.
+2. **Independent review**: Request a read-only review from an agent that did not author the change. Provide the requirements, base, change locations, sources, and verification records. The reviewer reads the diff, related files, and evidence independently rather than checking only the author's summary. Check requirement coverage, details, and source support, and assess evidence for differences from DSH under [Learning and adoption](documentation.md#learning-and-adoption). Report finding locations, evidence, impact, and unverified items.
+3. **Corrections and follow-up**: The author addresses findings and requests focused follow-up from the same reviewer when needed. Retain unresolved disagreements, choices that would change requirements, and incomplete verification for user judgment. Do not repeat reviews merely to obtain approval.
+4. **User review**: Provide the inspectable change and one concise explanation of what is complete, files and sources both agents reviewed, how DSH handles the problem and how and why this project differs, check results, findings and their disposition, and open decisions. Maintain only one Chinese local summary for the user. An English publication body may remain internal; avoid multiple user-facing review drafts.
+
+This workflow is this project's collaboration choice, not a claim that DSH uses the same pre-commit process, and CI does not trigger it automatically. If an independent agent is unavailable, report the gap; do not label author self-review as independent review. Passing review does not authorize commits, pushes, or merges; user authorization still follows this section. After subsequent edits, recheck only affected content and checks.
 
 ## Classification
 
