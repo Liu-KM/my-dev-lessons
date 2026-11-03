@@ -87,14 +87,17 @@ lesson 不自动成为强制规则。采用为项目规则时，说明本项目�
 
 ## 文档检查
 
-在仓库根目录运行以下检查（Python 3.9 及以上，无第三方依赖）：
+在仓库根目录运行 Python 文档检查（Python 3.9 及以上，无第三方依赖）：
 
+<!-- doc-check-entry -->
 ```sh
-python scripts/check_lessons.py
-python scripts/check_lesson_pairs.py
-python scripts/check_doc_budgets.py
-python -m unittest discover -s scripts -p 'test_*.py'
+python scripts/check_docs.py
 ```
+<!-- /doc-check-entry -->
+
+[统一入口](../scripts/check_docs.py)运行连接、结构、配对、篇幅检查及回归测试，失败即退出。[连接检查](../scripts/check_doc_entry.py)核对本页命令块、CI 步骤及 hook；范围与实验见[案例](../lessons/documentation-check-entry.zh.md)。
+
+用 `git config --get core.hooksPath` 查看已有 hook；有则先整合，无则用 `git config core.hooksPath .githooks` 启用[推送前检查](../.githooks/pre-push)。
 
 [工作流](../.github/workflows/docs.yml)在 push、PR 和手动触发时运行上述检查、Markdown 基础格式及本地文件链接和标题锚点检查。[格式配置](../.markdownlint-cli2.jsonc)排除参考克隆和链接到 AGENTS.md 的 CLAUDE.md；链接检查离线执行，不验证外部网址。
 

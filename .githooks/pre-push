@@ -1,0 +1,3 @@
+#!/bin/sh
+# Shared Python documentation checks; run from the repository root.
+python scripts/check_docs.py
