@@ -87,14 +87,17 @@ This retains DSH's fixed manifest, failure checks, and adjustment review. Python
 
 ## Documentation checks
 
-Run these checks from the repository root (Python 3.9 or later, without third-party dependencies):
+Run the Python documentation checks from the repository root (Python 3.9 or later, without third-party dependencies):
 
+<!-- doc-check-entry -->
 ```sh
-python scripts/check_lessons.py
-python scripts/check_lesson_pairs.py
-python scripts/check_doc_budgets.py
-python -m unittest discover -s scripts -p 'test_*.py'
+python scripts/check_docs.py
 ```
+<!-- /doc-check-entry -->
+
+The [shared entry](../scripts/check_docs.py) runs wiring, structure, pairing, budget checks and regression tests, stopping on failure. The [wiring check](../scripts/check_doc_entry.py) validates this page's command block, CI steps and hook; see the [case](../lessons/documentation-check-entry.md) for scope and experiments.
+
+Inspect `git config --get core.hooksPath`; integrate existing hooks, or, if unset, enable [pre-push checks](../.githooks/pre-push) with `git config core.hooksPath .githooks`.
 
 The [workflow](../.github/workflows/docs.yml) runs these checks, basic Markdown formatting, and local file links and heading anchors on pushes, PRs, and manual dispatch. The [format configuration](../.markdownlint-cli2.jsonc) excludes the reference clone and CLAUDE.md, which links to AGENTS.md. Link checks run offline and do not validate external URLs.
 

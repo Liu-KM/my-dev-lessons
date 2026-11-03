@@ -18,7 +18,9 @@
 - 文档：[规则集中维护与查找](lessons/rule-ownership-and-discovery.zh.md)（[English](lessons/rule-ownership-and-discovery.md)）
 - 文档：[新增经验与规则的取舍](lessons/lesson-and-rule-decisions.zh.md)（[English](lessons/lesson-and-rule-decisions.md)）
 
-编写经验请阅读[Lesson 写作规范](docs/documentation.zh.md#lesson-写作)，并从[贡献指南的任务导航](CONTRIBUTING.zh.md#按任务查找规范)找到双语维护、术语及 PR 要求。
+- 文档：[检查入口一致性](lessons/documentation-check-entry.zh.md)（[English](lessons/documentation-check-entry.md)）
+
+编写经验请从[贡献指南](CONTRIBUTING.zh.md#按任务查找规范)查找写作、双语维护及 PR 要求。
 
 ## 文档检查
 

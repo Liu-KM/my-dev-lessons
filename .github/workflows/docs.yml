@@ -19,16 +19,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Check lesson structure and checker regressions
-        run: |
-          python scripts/check_lessons.py
-          python -m unittest discover -s scripts -p 'test_*.py'
+      - name: Verify documentation entry wiring
+        run: python scripts/check_doc_entry.py
 
-      - name: Check bilingual lesson consistency
-        run: python scripts/check_lesson_pairs.py
-
-      - name: Check documentation budgets
-        run: python scripts/check_doc_budgets.py
+      - name: Run Python documentation checks
+        run: python scripts/check_docs.py
 
       - name: Check Markdown formatting
         uses: DavidAnson/markdownlint-cli2-action@v24
