@@ -11,6 +11,7 @@
 | 当前任务 | 阅读位置 |
 | --- | --- |
 | 编写或审阅 lesson | [写作规范](docs/documentation.zh.md#lesson-写作)与其中的模板入口 |
+| 判断是否新增、合并或替代内容 | [新增与整合内容](docs/documentation.zh.md#新增与整合内容) |
 | 同步中英文 | [双语维护](docs/bilingual-maintenance.zh.md)与[术语约定](TERMINOLOGY.md) |
 | 运行文档检查 | [文档检查](docs/documentation.zh.md#文档检查) |
 | 准备或审阅 PR | [PR 协作规范](docs/pull-requests.zh.md) |

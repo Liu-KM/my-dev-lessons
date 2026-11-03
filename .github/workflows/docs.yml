@@ -27,6 +27,9 @@ jobs:
       - name: Check bilingual lesson consistency
         run: python scripts/check_lesson_pairs.py
 
+      - name: Check documentation budgets
+        run: python scripts/check_doc_budgets.py
+
       - name: Check Markdown formatting
         uses: DavidAnson/markdownlint-cli2-action@v24
         with:

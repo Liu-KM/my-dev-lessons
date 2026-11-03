@@ -1,0 +1,42 @@
+{
+  "AGENTS.md": {
+    "metric": "characters",
+    "max": 692
+  },
+  "README.md": {
+    "metric": "characters",
+    "max": 1195
+  },
+  "CONTRIBUTING.md": {
+    "metric": "words",
+    "max": 383
+  },
+  "CONTRIBUTING.zh.md": {
+    "metric": "characters",
+    "max": 1340
+  },
+  "docs/documentation.md": {
+    "metric": "words",
+    "max": 1797
+  },
+  "docs/documentation.zh.md": {
+    "metric": "characters",
+    "max": 4271
+  },
+  "docs/pull-requests.md": {
+    "metric": "words",
+    "max": 1756
+  },
+  "docs/pull-requests.zh.md": {
+    "metric": "characters",
+    "max": 4919
+  },
+  "docs/bilingual-maintenance.md": {
+    "metric": "words",
+    "max": 611
+  },
+  "docs/bilingual-maintenance.zh.md": {
+    "metric": "characters",
+    "max": 1631
+  }
+}
