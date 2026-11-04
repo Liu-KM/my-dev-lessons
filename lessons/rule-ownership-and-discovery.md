@@ -16,7 +16,7 @@ One location means one logical source; an English–Chinese pair can jointly ser
 
 ## Method
 
-1. Inventory existing rules. Search distinctive phrases and related concepts to find repeated or conflicting statements; text search identifies candidates, while semantic duplication still requires judgment.
+1. Inventory existing rules. Search distinctive phrases and related concepts to find similar passages. Read them to decide whether different wording repeats the same rule or different requirements conflict.
 2. Assign ownership by responsibility: documentation standards own writing requirements, the terminology table owns wording, and PR policy owns collaboration. Consolidate requirements while preserving conditions and necessary exceptions; do not present undecided designs as current rules.
 3. Replace complete copies elsewhere with brief reminders and direct links. Repair old references in the same change so old and new rules do not coexist.
 4. Provide navigation from the current task to the relevant standard. Agent instructions or review workflows should require reading it before editing or judging content, rather than relying solely on memory or repository-wide search.
@@ -24,19 +24,19 @@ One location means one logical source; an English–Chinese pair can jointly ser
 
 For example, the documentation standard owns complete lesson-writing requirements, the README links from a writing task, and the template provides a fillable structure with a link to the standard. Update the owner and affected templates and checkers when a rule changes, rather than rewriting it at every entry point. A checker implements a rule; it is not a separate policy source.
 
-Link checks establish that paths or anchors resolve, not that they lead to the correct rule. Length checks detect excess, not all semantic duplication. Compliance still needs behavior-specific checks and review. This method aims to reduce duplication and discovery failures; it does not automatically guarantee enforcement.
+Link checks establish that a target file or heading exists, not that it is the right rule. Length checks detect excess, not every differently worded duplicate. Checking whether a rule is followed still requires examining actual behavior and reviewing changes.
 
 ## Case
 
 [DSH commit `aa36b3b36b`: establish documentation responsibilities and length checks](https://github.com/deepseek-ai/deepseek-harness/commit/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a)
 
 - **Problem and design**: Repeated rules and appended explanations expand standing documents. The commit assigns responsibilities to documentation tiers and requires searching repeated phrases, keeping one home, and replacing other statements with links.
-- **Executable constraint**: Add a length checker and manifest to the documentation checks; excess length or a missing listed file fails. This constrains growth in selected documents, rather than deduplicating semantics across the repository.
+- **Length check**: List files and their length ceilings in a manifest and run the checker from the documentation check script; excess length or a missing listed file fails. This limits selected documents' length; it cannot decide which rules across the repository repeat the same meaning.
 - **Evidence**: The [documentation standard at that revision](https://github.com/deepseek-ai/deepseek-harness/blob/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a/docs/AGENTS.md) and [checker](https://github.com/deepseek-ai/deepseek-harness/blob/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a/scripts/verify-doc-budgets.ts).
 
 [DSH commit `73dbbb751c`: organize review rules and entry points by the artifact being changed](https://github.com/deepseek-ai/deepseek-harness/commit/73dbbb751c2ad113cd65d40c99c1942d0c83dc06)
 
-- **Organization**: Replace the existing rule page with a topic directory and navigation mapping changes to the relevant rules. Topic pages link to type definitions and semantics instead of duplicating them.
+- **Organization**: Replace the existing rule page with a topic directory and navigation mapping changes to the relevant rules. Topic pages link to type definitions and explanations of their meaning instead of duplicating them.
 - **Usage**: Update root instructions and the code review workflow to require locating and reading the relevant rules before reviewing changes; repair references and bilingual pairs together.
 - **Evidence**: The [navigation page](https://github.com/deepseek-ai/deepseek-harness/blob/73dbbb751c2ad113cd65d40c99c1942d0c83dc06/docs/defensive-patterns/README.md) and [review workflow](https://github.com/deepseek-ai/deepseek-harness/blob/73dbbb751c2ad113cd65d40c99c1942d0c83dc06/.agents/skills/dsh-code-review/SKILL.md).
 

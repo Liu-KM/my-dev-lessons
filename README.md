@@ -1,10 +1,10 @@
 # my-dev-lessons
 
-从 DeepSeek Harness（DSH）从零开始的开发历史中，学习开发技巧、工程决策和踩坑经验，并通过自己的实践，将它们整理成可复用的方法和工具。
+从 DeepSeek Harness（DSH）从零开始的开发历史中学习工程经验，通过实践整理成可复用的方法和工具。
 
 这些 lessons 既是我学到的经验，也是教给我的 Agent 的课程：帮助我提升工程能力，让 Codex 等 Agent 更好地参与开发，减少 AI slop。
 
-目前从学习和讨论开始，项目需求见 [MVP 需求分析草稿](MVP.md)。首批案例范围与具体组织方式待讨论。
+项目需求见 [MVP 需求分析草稿](MVP.md)。
 
 写作与翻译参考[中英文术语约定](TERMINOLOGY.md)。
 
@@ -19,6 +19,8 @@
 - 文档：[新增经验与规则的取舍](lessons/lesson-and-rule-decisions.zh.md)（[English](lessons/lesson-and-rule-decisions.md)）
 
 - 文档：[检查入口一致性](lessons/documentation-check-entry.zh.md)（[English](lessons/documentation-check-entry.md)）
+
+- 代码：[新增类别时检查遗漏分支](lessons/type-exhaustiveness.zh.md)
 
 编写经验请从[贡献指南](CONTRIBUTING.zh.md#按任务查找规范)查找写作、双语维护及 PR 要求。
 
