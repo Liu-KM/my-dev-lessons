@@ -40,4 +40,4 @@ The agent used the draft saved before the trial and was not run again after this
 
 ## Verification status
 
-Nine case tests and four independent checks passed locally. Remote CI has not run. Passing typechecking and correct branch meanings need separate verification; these constructed data do not represent real performance or paper conclusions.
+Nine case tests and four independent checks passed locally. [PR #19's remote documentation checks](https://github.com/Liu-KM/my-dev-lessons/actions/runs/41767950683) passed on Linux / Python 3.12.15, including the nine case tests. Passing typechecking and correct branch meanings need separate verification; these constructed data do not represent real performance or paper conclusions.
