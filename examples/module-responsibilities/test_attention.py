@@ -69,7 +69,8 @@ class AttentionTests(unittest.TestCase):
             actual = experiment.run_attention(implementation, q, k, v).output
             np.testing.assert_allclose(actual, expected, rtol=1e-5, atol=1e-6)
             for index in (31, 32, 63, 64, 127):
-                self.assertAlmostEqual(float(actual[0, 0, index, 0]), index / 2, places=5)
+                np.testing.assert_allclose(actual[..., index, :], index / 2,
+                                           rtol=1e-5, atol=1e-6)
 
     def test_mismatched_kv_lengths_rejected_by_common_caller(self):
         q, k, v = inputs()
