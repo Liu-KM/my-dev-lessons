@@ -31,10 +31,11 @@ The person proposing a difference explains what problem the original mechanism p
 Start from the [Chinese template](../templates/lesson.zh.md) or [English template](../templates/lesson.md) and save the lesson under `lessons/`. Replace every `{{…}}` placeholder and follow [bilingual maintenance](bilingual-maintenance.md) to add the counterpart, language links, and record.
 
 - Use a title that directly identifies the problem or application scenario.
-- Use four nonempty second-level sections in order: Problem, Lesson, Method, and Case, with their Chinese equivalents. Use third-level headings for subdivisions. State a reusable insight first and support it with the case at the bottom, rather than only retelling commits.
-- Distinguish DSH's actual practice, our inference, and this project's adopted approach without copying its entire current architecture or rules. A case may be a useful design or a failure and repair; DSH's adoption alone does not establish effectiveness.
-- Link the case to a specific commit, naming the commit and change topic in the link label. Reference code, tests, or decisions at that revision when useful. Explain what they support without inventing undocumented motives.
-- State separately what historical source inspection, local execution, and remote CI actually establish in the verification status. Identify what was not executed. Not every case needs reproduction; configuration or static reading cannot establish successful execution.
+- Use four nonempty second-level sections in order: Problem, Lesson, Method, and Case, with their Chinese equivalents. Use third-level headings for subdivisions. Explain the general mechanism, optionally with a brief example; state a transferable insight supported by the case.
+- Explain the causal connection from requirement to gap, solution, and verification, naming responsibilities, actions, and results. Retain conditions and limitations that affect application.
+- Distinguish DSH's actual practice, our inference, and this project's adopted approach. Successful designs and failure-and-repair cases are both useful; judge effectiveness from case evidence.
+- Link a specific commit, naming it and the change topic in the label. Explain the evidence using code, tests, or decisions at that revision without inventing motives.
+- State observations or results supporting the conclusion, distinguishing source reading from execution. Link reproduction details in an example README or existing evidence; put current checks and CI results in the PR. A fixed verification-status field is optional. Do not describe an unexecuted operation as passed.
 
 ## Changing rules
 
@@ -101,6 +102,6 @@ Inspect `git config --get core.hooksPath`; integrate existing hooks, or, if unse
 
 The [workflow](../.github/workflows/docs.yml) runs these checks, basic Markdown formatting, and local file links and heading anchors on pushes, PRs, and manual dispatch. The [format configuration](../.markdownlint-cli2.jsonc) excludes the reference clone and CLAUDE.md, which links to AGENTS.md. Link checks run offline and do not validate external URLs.
 
-The lesson structure check validates titles, fixed sections, case source links, verification status, and template placeholders. [Bilingual maintenance](bilingual-maintenance.md#check-coverage) defines the pairing check's coverage and limits. Current checks cannot establish that sources support conclusions, translations preserve meaning, or commands execute successfully. They do not type-check documentation examples or deploy a website. The first lesson's [case](../lessons/docs-example-typecheck.zh.md#案例) also serves as a structure and Chinese-anchor sample.
+The lesson structure check validates titles, fixed sections, case source links, and template placeholders. [Bilingual maintenance](bilingual-maintenance.md#check-coverage) defines the pairing check's coverage and limits. Current checks cannot establish that sources support conclusions, translations preserve meaning, or commands execute successfully. They do not type-check documentation examples or deploy a website. The first lesson's [case](../lessons/docs-example-typecheck.zh.md#案例) also serves as a structure and Chinese-anchor sample.
 
 Remote success is established by the Actions records for the corresponding commit. Required checks and integration restrictions are covered by the [PR policy](pull-requests.md#automation-and-activation).

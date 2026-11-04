@@ -28,15 +28,14 @@ class LessonChecks(unittest.TestCase):
         self.assertTrue(validate(legacy.replace('## 经验结论\n', '## 经验\n')))
 
     def test_english_structure_and_rejection_paths(self):
-        # Only the heading/status contract is translated; no other lesson is needed.
+        # Translate the structural headings; content evidence is reviewed separately.
         english = self.sample
         for chinese_heading, english_heading in zip(SECTIONS, EN_SECTIONS):
             english = english.replace('## ' + chinese_heading + '\n', '## ' + english_heading + '\n')
         english = english.replace('验证状态：', 'Verification status: ')
         self.assertEqual(validate(english), [])
         self.assertTrue(validate(english.replace("## Lesson", "## 经验")))
-        self.assertTrue(validate(re.sub(r"^Verification status:.*$", "", english, flags=re.M)))
-        self.assertTrue(validate(re.sub(r"^Verification status:.*$", "Verification status: ", english, flags=re.M)))
+        self.assertEqual(validate(re.sub(r"^Verification status:.*$", "", english, flags=re.M)), [])
 
     def test_missing_section(self):
         self.assertTrue(validate(self.sample.replace("## 经验", "### 经验")))
@@ -49,13 +48,16 @@ class LessonChecks(unittest.TestCase):
         text = re.sub(r"\[[^\]]+\]\(https?://[^)]+\)", "来源已移除", self.sample)
         self.assertTrue(any("来源链接" in error for error in validate(text)))
 
-    def test_missing_verification(self):
+    def test_fixed_status_field_is_optional(self):
         text = re.sub(r"^验证状态：.*$", "", self.sample, flags=re.M)
-        self.assertTrue(any("验证状态" in error for error in validate(text)))
+        self.assertEqual(validate(text), [])
+        natural_prose = self.sample.replace("验证状态：", "本地实践结果：")
+        self.assertEqual(validate(natural_prose), [])
 
-    def test_fenced_text_cannot_supply_missing_verification(self):
-        text = re.sub(r"^验证状态：.*$", "```text\n验证状态：示例\n```", self.sample, flags=re.M)
-        self.assertTrue(any("验证状态" in error for error in validate(text)))
+    def test_fenced_source_cannot_replace_case_source(self):
+        text = re.sub(r"\[[^\]]+\]\(https?://[^)]+\)", "来源已移除", self.sample)
+        text += "\n```md\n[Source](https://example.com/commit)\n```\n"
+        self.assertTrue(any("来源链接" in error for error in validate(text)))
 
     def test_unfilled_template(self):
         template = (ROOT / "templates/lesson.md").read_text(encoding="utf-8")
