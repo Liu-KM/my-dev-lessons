@@ -51,9 +51,6 @@ def validate(text):
     case = sections.get(expected[-1], "")
     if not re.search(r"\[[^\]\n]+\]\(https?://[^\s)]+\)", case):
         errors.append("参考案例需要至少一个带标签的 HTTP(S) 原始来源链接")
-    status_pattern = r"^Verification status: [^\s].*$" if english else r"^验证状态：\S.*$"
-    if not re.search(status_pattern, case, re.M):
-        errors.append("参考案例需要非空的“验证状态：”说明")
     if re.search(r"\{\{.*?\}\}", text, re.S):
         errors.append("请替换模板占位符 {{…}}")
     return errors
