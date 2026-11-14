@@ -14,16 +14,11 @@
 
 ## 方法
 
-1. 围绕一个明确改动建立分支。讨论稿可以先留在工作区，需要保存或远程检查时再提交到该分支。
-2. 通过同一个 PR 展示改动，尚在打磨时使用 Draft 状态。后续修正继续进入该分支，PR 描述随最终方案更新。
-3. 合入前检查内容是否符合需求、相关 CI 是否通过，以及审阅是否完成。本项目由用户确认后合入，不把检查通过视为自动合并授权。
-4. 按改动选择合并方式。小型独立任务可以 squash 成一个主线提交；需要保留有意义的分步历史时，也可以保留多个提交。
+1. 将尚在迭代的改动留在功能分支，通过同一个 PR 审阅完整成果；保存或推送分支进展不等于接受成果。
+2. 分别核对检查结果与审阅结论，再决定是否合入。检查回答配置的条件是否满足，审阅判断需求、内容和取舍是否可接受。
+3. 按解释改动和撤销的需要组织历史：同一成果的零散进展可以 squash，有意义的分步提交可以保留，独立问题不为减少提交数而合并。
 
-`commit` 是创建提交，`push` 是将提交发送到远程分支，PR 是审阅与讨论改动的入口，`merge` 才是合入目标分支。推送功能分支不等于推送主线。采用 PR 也不自动保证主线历史精简，是否压缩提交需要单独决定。
-
-这条经验不要求每轮交流都提交，也不要求重写已经发布的历史。分支保护可以进一步强制 PR 和检查要求，但需要实际配置；流程约定本身不等于 GitHub 已禁止直接推送。
-
-保存进展也应尽量形成逻辑独立、便于审阅和撤销的提交。主线历史的目标是解释清楚改动，而非单纯减少 commit 数量；多个独立问题不应仅为了“干净”而压成一个提交。
+本项目的提交时机、Draft PR 与用户确认要求由[提交与合入规范](../docs/pull-requests.zh.md#提交与合入)维护；分支保护须实际配置，见[自动检查与启用](../docs/pull-requests.zh.md#自动检查与启用)。本方法不要求每轮交流都提交或重写已发布历史。
 
 ## 案例
 
@@ -33,13 +28,8 @@
 - **采取的办法**：改动在 `feat/rfc006-doc-sync` 分支推进，随后通过 PR 合入。分支先实现检查，再修正解析问题、补充本地 pre-push 接入；这些修改没有各自作为一次直接推送主线的操作。
 - **可查看的证据**：[PR #15](https://github.com/deepseek-ai/deepseek-harness/pull/15)对应的合并提交保留了分支历史，其中包括[初始实现 `6a528be569`](https://github.com/deepseek-ai/deepseek-harness/commit/6a528be5695deb9b5207477948f0110d588c8c01)、[解析修复 `7a39616a06`](https://github.com/deepseek-ai/deepseek-harness/commit/7a39616a06731b6a61e861494e3169511d87a344)和[pre-push 接入 `fa7d1df6f2`](https://github.com/deepseek-ai/deepseek-harness/commit/fa7d1df6f2c6dbbae32ecbaf0fb8275c407b8828)。这是一笔保留分支历史的 merge commit，不是 squash merge。
 
-### 补充参考
+已检查本地 DSH 仓库的合并提交、父提交及分支内记录，支持“分支迭代后通过 PR 合入”；未核对该 PR 当时的审批与 CI 结果。Draft PR、用户确认和可选择 squash 是本项目的流程选择。
 
-以下是我们学习时补充的参考：
+本项目在 [PR #1](https://github.com/Liu-KM/my-dev-lessons/pull/1) 中更新功能分支，文档 CI 通过后经用户确认 squash 合入；[合并提交](https://github.com/Liu-KM/my-dev-lessons/commit/83a377de6b956bea346e18ddd07e67e105bdc23a)记录了集成结果。这次实践不证明分支保护或 PR 策略工作流已启用。
 
-- 《Pro Git》第 2 版：[5.2](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project) 解释逻辑独立的提交；[5.3](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project) 介绍主题分支与集成方式。
-- [MIT Missing Semester：Version Control (Git)](https://missing.csail.mit.edu/2020/version-control/)：补充快照、提交历史与分支的概念基础。
-
-Draft PR 与用户确认合并是本项目的流程选择。
-
-验证状态：已检查本地 DSH 仓库的合并提交、父提交及分支内提交记录，并阅读上述书籍章节与课程讲义；未核对该 PR 当时的审批与 CI 结果。分支迭代后通过 PR 合入由历史支持；用户确认后合并及小型任务可采用 squash，是本项目选择的协作方式。本项目已在 [PR #1](https://github.com/Liu-KM/my-dev-lessons/pull/1) 中实践该流程：更新功能分支，文档 CI 通过，再经用户确认后 squash 合入主线。[合并提交](https://github.com/Liu-KM/my-dev-lessons/commit/83a377de6b956bea346e18ddd07e67e105bdc23a)记录了集成结果；这不代表分支保护或新增 PR 策略工作流已经启用。
+补充阅读：《Pro Git》[5.2](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)、[5.3](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project)；[MIT Missing Semester：Git](https://missing.csail.mit.edu/2020/version-control/)。

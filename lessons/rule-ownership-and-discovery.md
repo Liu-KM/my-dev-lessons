@@ -16,23 +16,20 @@ One location means one logical source; an English–Chinese pair can jointly ser
 
 ## Method
 
-1. Inventory existing rules. Search distinctive phrases and related concepts to find similar passages. Read them to decide whether different wording repeats the same rule or different requirements conflict.
-2. Assign ownership by responsibility: documentation standards own writing requirements, the terminology table owns wording, and PR policy owns collaboration. Consolidate requirements while preserving conditions and necessary exceptions; do not present undecided designs as current rules.
-3. Replace complete copies elsewhere with brief reminders and direct links. Repair old references in the same change so old and new rules do not coexist.
-4. Provide navigation from the current task to the relevant standard. Agent instructions or review workflows should require reading it before editing or judging content, rather than relying solely on memory or repository-wide search.
-5. Check that links resolve, task entry points lead to the requirements, and old locations no longer duplicate definitions. Targeted length limits can constrain repeatedly expanding entry documents; limits cannot replace content review.
+1. Search distinctive phrases and related concepts, and assign one source according to responsibility. Replace complete copies elsewhere with brief reminders and direct links, repairing old references together. See [Deciding when to add or revise lessons and rules](lesson-and-rule-decisions.md) for consolidation decisions and preserving conditions.
+2. Provide navigation from the current task to the relevant policy and read it before editing or reviewing. Multiple entry points lead to the same source of complete requirements.
+3. Follow an actual task entry point to the rule. Check that links reach the right requirements, old locations contain no independent definitions, and affected templates and checkers agree with the rule.
 
-For example, the documentation standard owns complete lesson-writing requirements, the README links from a writing task, and the template provides a fillable structure with a link to the standard. Update the owner and affected templates and checkers when a rule changes, rather than rewriting it at every entry point. A checker implements a rule; it is not a separate policy source.
+For example, the documentation policy owns lesson-writing requirements, the contribution guide supplies task entry points, and the template provides a fillable structure linked to the policy. The checker implements that requirement without defining a separate policy.
 
-Link checks establish that a target file or heading exists, not that it is the right rule. Length checks detect excess, not every differently worded duplicate. Checking whether a rule is followed still requires examining actual behavior and reviewing changes.
+Link checks establish that a target file or heading exists. Following the task path and reviewing changes are still needed to judge whether it is the right rule, definitions remain duplicated, or the rule is followed.
 
 ## Case
 
 [DSH commit `aa36b3b36b`: establish documentation responsibilities and length checks](https://github.com/deepseek-ai/deepseek-harness/commit/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a)
 
 - **Problem and design**: Repeated rules and appended explanations expand standing documents. The commit assigns responsibilities to documentation tiers and requires searching repeated phrases, keeping one home, and replacing other statements with links.
-- **Length check**: List files and their length ceilings in a manifest and run the checker from the documentation check script; excess length or a missing listed file fails. This limits selected documents' length; it cannot decide which rules across the repository repeat the same meaning.
-- **Evidence**: The [documentation standard at that revision](https://github.com/deepseek-ai/deepseek-harness/blob/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a/docs/AGENTS.md) and [checker](https://github.com/deepseek-ai/deepseek-harness/blob/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a/scripts/verify-doc-budgets.ts).
+- **Evidence**: The [documentation standard at that revision](https://github.com/deepseek-ai/deepseek-harness/blob/aa36b3b36bcb46ef3c9d37b23c3145439fd7bf1a/docs/AGENTS.md). The length checker introduced in the same commit and its limits are explained in the [case on adding and revising lessons and rules](lesson-and-rule-decisions.md#case).
 
 [DSH commit `73dbbb751c`: organize review rules and entry points by the artifact being changed](https://github.com/deepseek-ai/deepseek-harness/commit/73dbbb751c2ad113cd65d40c99c1942d0c83dc06)
 
