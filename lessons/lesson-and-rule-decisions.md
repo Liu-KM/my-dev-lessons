@@ -18,7 +18,7 @@ Automated checks can detect missing sections or excessive length. People or agen
 
 Start the comparison at the primary owners of related content. Another case supporting the same conclusion usually extends existing evidence; an independent problem may need a new entry. Preserve conclusions that apply under different conditions. For conflicting conclusions under the same conditions, check the sources and identify the correction or replacement. See [Rule ownership and discovery](rule-ownership-and-discovery.md) for placement and navigation.
 
-Make the comparison part of editing and review: the author links related content and explains the choice; the reviewer checks necessity and preservation of conditions. When consolidating, preserve useful rationale, tradeoffs, and what remains unverified, and repair references. Do not assume Git history replaces current explanations readers still need.
+When consolidating, preserve useful rationale, tradeoffs, and what remains unverified, and repair references. Git history cannot replace current explanations readers still need. Review both what was removed and whether these conditions remain.
 
 For entry pages that receive frequent additions, check the length of named files and require review when they exceed their ceilings. First decide whether the new content belongs elsewhere, then condense it; justify any increase still needed. The ceiling, measurement, and adjustment rationale also need review: passing after changing the configuration does not establish that the new ceiling is appropriate. English whitespace-based word counts do not directly measure Chinese text length.
 
@@ -46,14 +46,12 @@ This project compared the following passages. The judgments came from review, no
 
 | Comparison sample | Judgment and action |
 | --- | --- |
-| Ownership, navigation, and word ceilings in this case versus the existing rule-ownership lesson | The existing lesson covers these mechanisms, so Method links to it; this case retains the background needed to explain addition and replacement decisions |
+| Both lessons cite the same commit on responsibilities and length checks | Divide the explanation by problem: the rule-ownership lesson covers ownership and navigation; this lesson covers addition, replacement, and length checks. Cross-reference instead of explaining the same mechanism twice |
 | This lesson's creation criteria versus the previous lesson's maintenance location | They are complementary topics; keep them distinct and add only one owner for project operations in the documentation policy |
 | Documentation example type checking versus bilingual consistency | Both validate documentation, but one checks code types and the other checks structure, literal code, and confirmation records; do not merge them into a claim that passing checks proves documentation correct |
 | A hypothetical rule allowing automatic merge after checks pass versus the current user-confirmation requirement | They conflict in the same integration scenario; the hypothetical rule was not adopted, and PR policy remains the owner of integration conditions |
 
-This project also follows DSH's approach of setting document length ceilings: the [file manifest](../scripts/doc-budgets.manifest.json) owns fixed ceilings, and the [checker](../scripts/check_doc_budgets.py) runs through `python scripts/check_doc_budgets.py` in [documentation CI](../.github/workflows/docs.yml). The initial manifest covers ten standing entry pages and operational policy files; reviewers still decide whether rules conflict.
-
-The implementation uses the existing Python checking environment. English counts whitespace-separated words; Chinese counts non-whitespace characters so a paragraph is not treated as one word. [Documentation budgets](../docs/documentation.md#documentation-budgets) owns the scope, at least 5% headroom, and adjustment order. Despite the language and counting changes, this retains fixed manifests, failure on excess length or missing files, and review of ceiling adjustments. Neither project size nor the inability to detect rule conflicts automatically was used to omit length checks.
+This project implements the [length checker](../scripts/check_doc_budgets.py) in its existing Python environment and connects it to documentation CI. It retains a fixed manifest, failure on excess length or missing files, and review of ceiling adjustments. English counts whitespace-separated words; Chinese counts non-whitespace characters so a paragraph is not treated as one word. [Documentation budgets](../docs/documentation.md#documentation-budgets) owns the scope, headroom, commands, and adjustment procedure.
 
 An experiment used the unchanged DSH `ce7073d512` checker with temporary files and a manifest limiting one example file to 10 words. Ordinary short text passed; 11 words and a missing file each failed with exit code 1. Short English text requiring review both always and never still passed. These samples check what the length checker detects and misses; they are not historical DSH incidents.
 
